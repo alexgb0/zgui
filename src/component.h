@@ -13,7 +13,7 @@ namespace zgui
 
 		void calc_children() override;
 		void draw() override;
-		//std::pair<int, int> dimension() override;
+		std::pair<int, int> dimension() override;
 	};
 
 	struct VerticalContainer : BaseContainer

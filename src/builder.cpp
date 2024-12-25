@@ -11,6 +11,9 @@ zgui::Builder* zgui::Builder::add_window(const std::string_view name, const std:
 	window->name = name;
 	window->title = title;
 	window->style = style;
+	window->color = style->white;
+	window->x = 10;
+	window->y = 10;
 	windows.emplace_back(window);
 
 	current_window = window;
@@ -171,9 +174,6 @@ zgui::Builder* zgui::Builder::compile()
 {
 	for (auto* window : windows)
 	{
-		window->x = 40;
-		window->y = 40;
-
 		window->calc_children();
 		window->dimension();
 	}

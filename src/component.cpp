@@ -18,6 +18,22 @@ std::pair<int, int> zgui::BaseContainer::dimension()
 	return { w, h };
 }
 
+std::pair<int, int> zgui::Window::dimension()
+{
+	int max_h = 0, max_w = 0;
+	for (auto element : childs)
+	{
+		auto [e_w, e_h] = element->dimension();
+		if (max_w < e_w) max_w = e_w;
+		max_h += e_h;
+	}
+
+	w = max_w + (style->margin_x * 2);
+	h = max_h + (style->margin_y * (childs.size() + 1));
+
+	return { w, h };
+}
+
 std::pair<int, int> zgui::VerticalContainer::dimension()
 {
 	int max_h = 0, max_w = 0;

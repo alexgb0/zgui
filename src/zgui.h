@@ -43,6 +43,7 @@ namespace zgui
 		Style* style;
 		
 		bool clickable = false;
+		bool visible = true;
 		ElementCallback callback;
 
 
